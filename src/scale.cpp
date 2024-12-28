@@ -6,6 +6,9 @@ extern void Save_Scale_Settings_To_NV_Storage ( uint8_t scalenum );
 // Instantiate Load Cell Amplifiers
 NAU7802 myScales[4]; //Create 4 instances of the NAU7802 class
 
+// Instantiate the I/O Expander that detects cable connection to scale
+PCA9536 scale_cable_detector;
+
 
 
 void setup_scales ( void )
@@ -30,6 +33,19 @@ uint8_t scalenum;
   KegData[2].sample_index = 0;  
   KegData[3].sample_index = 0;  
 
+  // Start IO Expander that detects scale cable connection
+  if (scale_cable_detector.begin() == false)
+  {
+    Serial.println("PCA9536 not detected. Please check wiring. Freezing...");
+  }
+
+  // Set all 4 IO as input
+  for (int i = 0; i < 4; i++)
+  {
+    // pinMode can be used to set an I/O as OUTPUT or INPUT
+    scale_cable_detector.pinMode(i, INPUT);
+  }
+ 
 
   // Find all Scale ADC's
   for (scalenum=0; scalenum<4; scalenum++)
@@ -52,10 +68,28 @@ uint8_t scalenum;
 
     }
 
+
+  // Now check if cables are connected from ADC's to scales using the pullups connected to the IO expander
+  for (int i = 0; i < 4; i++)
+    {
+    if (scale_cable_detector.digitalRead(i) == 0) // connected
+      {
+      if (NewScaleData[i].isPresent)
+        NewScaleData[i].isPresent = true;
+      else
+        NewScaleData[i].isPresent = false; // connected but ADC is not working/connected
+      }
+    else
+      {
+       NewScaleData[i].isPresent = false; // Cable is not connected to Scale, regardless of whether ADC is working
+      }
+    }
+
     MyKeezer.isScale1Installed = NewScaleData[0].isPresent;
     MyKeezer.isScale2Installed = NewScaleData[1].isPresent;
     MyKeezer.isScale3Installed = NewScaleData[2].isPresent;
     MyKeezer.isScale4Installed = NewScaleData[3].isPresent;
+
 
 
   // ADC Basic Initializations

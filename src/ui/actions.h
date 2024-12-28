@@ -21,7 +21,11 @@ extern void action_tab2_click_cb(lv_event_t * e);
 extern void action_tab3_click_cb(lv_event_t * e);
 extern void action_tab4_click_cb(lv_event_t * e);
 extern void action_keg_name_click_cb(lv_event_t * e);
+
 extern void action_keg_check_modify_click_cb(lv_event_t * e);
+extern void set_kegdata_modify_clickable_state ( lv_state_t flag_state );
+
+
 extern void action_keg_option_click_cb(lv_event_t * e);
 extern void action_keg_empty_click_cb(lv_event_t * e);
 extern void action_keg_full_click_cb(lv_event_t * e);

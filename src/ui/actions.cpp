@@ -15,12 +15,39 @@ extern "C" {
     lv_scr_load(screen);
 */
 
+void set_kegdata_modify_clickable_state ( lv_state_t flag_state )
+{
+    if ( flag_state == _UI_MODIFY_FLAG_ADD )
+        {
+        _ui_flag_modify(objects.txt_weight_empty, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.txt_weight_full, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.keg_type_dropdown, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_recalibrate, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_reset, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_save, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_set_empty, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_set_full, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+
+        }
+    else
+        {
+        _ui_flag_modify(objects.txt_weight_empty, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.txt_weight_full, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.keg_type_dropdown, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.btn_kegdata_recalibrate, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.btn_kegdata_reset, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.btn_kegdata_save, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.btn_kegdata_set_empty, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        _ui_flag_modify(objects.btn_kegdata_set_full, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+
+        }
+}
+
 void action_keg1_home_click_cb(lv_event_t * e)
 { 
 
     // Set Active Tab
     lv_tabview_set_act(objects.tab_view1, 0, LV_ANIM_OFF);
-
 	lv_label_set_text(objects.lbl_keg_data_title, "Keg 1 Settings");		
     
     // Update Kegname shown in textbox
@@ -50,13 +77,20 @@ void action_keg1_home_click_cb(lv_event_t * e)
         lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
         }
 
+    // Make sure Keg Modify checkbox is unchecked to start
+    lv_obj_remove_state(objects.chk_modify_kegdata, LV_STATE_CHECKED);
+    set_kegdata_modify_clickable_state (_UI_MODIFY_FLAG_REMOVE );
+
     loadScreen(SCREEN_ID_SCN_KEG_DATA);
 }
 
 void action_keg2_home_click_cb(lv_event_t * e)
 { 
+    // Set Active Tab
     lv_tabview_set_act(objects.tab_view1, 1, LV_ANIM_OFF);
 	lv_label_set_text(objects.lbl_keg_data_title, "Keg 2 Settings");		
+
+    // Update Kegname shown in textbox
     lv_textarea_set_text(objects.txt_keg_name, lv_label_get_text(objects.lbl_keg_name2));		
 
     // Update Kegtype Dropdown
@@ -82,6 +116,10 @@ void action_keg2_home_click_cb(lv_event_t * e)
         {
         lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
         }
+
+    // Make sure Keg Modify checkbox is unchecked to start
+    lv_obj_remove_state(objects.chk_modify_kegdata, LV_STATE_CHECKED);
+    set_kegdata_modify_clickable_state (_UI_MODIFY_FLAG_REMOVE );
 
     loadScreen(SCREEN_ID_SCN_KEG_DATA);
 }
@@ -116,6 +154,10 @@ void action_keg3_home_click_cb(lv_event_t * e)
         lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
         }
 
+    // Make sure Keg Modify checkbox is unchecked to start
+    lv_obj_remove_state(objects.chk_modify_kegdata, LV_STATE_CHECKED);
+    set_kegdata_modify_clickable_state (_UI_MODIFY_FLAG_REMOVE );
+
     loadScreen(SCREEN_ID_SCN_KEG_DATA);
 }
 
@@ -148,6 +190,10 @@ void action_keg4_home_click_cb(lv_event_t * e)
         {
         lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
         }
+
+    // Make sure Keg Modify checkbox is unchecked to start
+    lv_obj_remove_state(objects.chk_modify_kegdata, LV_STATE_CHECKED);
+    set_kegdata_modify_clickable_state (_UI_MODIFY_FLAG_REMOVE );
 
     loadScreen(SCREEN_ID_SCN_KEG_DATA);
 }
@@ -231,6 +277,10 @@ void action_tab_click_cb(lv_event_t * e)
 {
 uint16_t kegpage = lv_tabview_get_tab_act(objects.tab_view1);
 char str[8];
+
+    // Make sure Modify checkbox is unchecked to start
+    lv_obj_remove_state(objects.chk_modify_kegdata, LV_STATE_CHECKED);
+    set_kegdata_modify_clickable_state (_UI_MODIFY_FLAG_REMOVE );
 
 	switch (kegpage)
 	{
@@ -701,15 +751,23 @@ void action_keg_empty_click_cb(lv_event_t * e)
     }
 
     if(event_code == LV_EVENT_DEFOCUSED) {
-        _ui_flag_modify(objects.chk_modify_kegdata, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.txt_weight_full, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.keg_type_dropdown, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_back, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_recalibrate, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_reset, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_save, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_set_empty, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
-        _ui_flag_modify(objects.btn_kegdata_set_full, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_REMOVE);
+        // Hide the keyboard
+		_ui_flag_modify(objects.kbd_numeric, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+
+        _ui_flag_modify(objects.chk_modify_kegdata, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.txt_weight_full, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.keg_type_dropdown, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_back, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_recalibrate, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_reset, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_save, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_set_empty, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+        _ui_flag_modify(objects.btn_kegdata_set_full, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+
+        //Restore Panel to original position
+        //animate_obj_Down200pix(objects.pnl_keg, 0);
+        lv_obj_set_x(objects.pnl_keg_data, -20);
+
     }
 
     if(event_code == LV_EVENT_READY) {
@@ -788,6 +846,9 @@ void action_keg_full_click_cb(lv_event_t * e)
     }
 
     if(event_code == LV_EVENT_DEFOCUSED) {
+        // Hide the keyboard
+		_ui_flag_modify(objects.kbd_numeric, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
+
         _ui_flag_modify(objects.chk_modify_kegdata, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(objects.txt_weight_empty, LV_OBJ_FLAG_CLICK_FOCUSABLE, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(objects.keg_type_dropdown, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
@@ -797,6 +858,10 @@ void action_keg_full_click_cb(lv_event_t * e)
         _ui_flag_modify(objects.btn_kegdata_save, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(objects.btn_kegdata_set_empty, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
         _ui_flag_modify(objects.btn_kegdata_set_full, LV_OBJ_FLAG_CLICKABLE, _UI_MODIFY_FLAG_ADD);
+
+        //Restore Panel to original position
+        //animate_obj_Down200pix(objects.pnl_keg, 0);
+        lv_obj_set_x(objects.pnl_keg_data, -20);
     }
 
     if(event_code == LV_EVENT_READY) {
