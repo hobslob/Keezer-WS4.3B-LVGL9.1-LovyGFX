@@ -68,7 +68,7 @@ uint8_t scalenum;
 
     }
 
-
+/*
   // Now check if cables are connected from ADC's to scales using the pullups connected to the IO expander
   for (int i = 0; i < 4; i++)
     {
@@ -84,6 +84,7 @@ uint8_t scalenum;
        NewScaleData[i].isPresent = false; // Cable is not connected to Scale, regardless of whether ADC is working
       }
     }
+*/
 
     MyKeezer.isScale1Installed = NewScaleData[0].isPresent;
     MyKeezer.isScale2Installed = NewScaleData[1].isPresent;
