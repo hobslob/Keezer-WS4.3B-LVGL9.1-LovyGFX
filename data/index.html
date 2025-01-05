@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Keezer DASHBOARD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+    <script src="https://kit.fontawesome.com/6905e8480d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <h1>KEEZER GAUGES</h1>
+    </div>
+    <div class="content">
+      <div class="card-grid">
+        <div class="card">
+          <p class="card-title">Internal Temperature</p>
+          <canvas id="gauge-temperature"></canvas>
+        </div>
+
+        <div class="card">
+          <p class="card-title">Keg #1</p>
+          <canvas id="gauge-keg1"></canvas>
+          <form action="" id="sampleForm">
+            <div>
+              <table class="mytable">
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg1Oz16" name="Keg1Oz16" value="40" disabled>
+                  <label for="Keg1Oz16">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-lg"></i>           
+                  </div>
+                 </td></tr>  
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg1Oz12" name="Keg1Oz12" value="40" disabled>
+                  <label for="Keg1Oz12">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-sm"></i>           
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-weightbox">
+                    <input type="text" id="Keg1Weight" name="Keg1Weight" value="22 lbs" disabled>
+                    <label for="Keg1Weight">__.</label>
+                    <i class="fa-solid fa-weight-scale"></i>            
+                    </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-input">
+                    <input type="text" id="Keg1BeerName" 
+                           name="Keg1BeerName" placeholder="Type Beer Name here" 
+                           value="">
+                    <label for="Keg1BeerName">__.</label>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <button type="submit" class="btn-submit1" id="btnSubmit1"> Edit</button>
+                </td></tr>  
+              </table>
+            </div>
+          </form>
+        </div>
+        
+        <div class="card">
+          <p class="card-title">Keg #2</p>
+          <canvas id="gauge-keg2"></canvas>
+          <form action="" id="kegForm2">
+            <div>
+              <table class="mytable">
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg2Oz16" name="Keg2Oz16" value="40" disabled>
+                  <label for="Keg2Oz16">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-lg"></i>           
+                  </div>
+                 </td></tr>  
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg2Oz12" name="Keg2Oz12" value="40" disabled>
+                  <label for="Keg2Oz12">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-sm"></i>           
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-weightbox">
+                    <input type="text" id="Keg2Weight" name="Keg2Weight" value="22 lbs" disabled>
+                    <label for="Keg2Weight">__.</label>
+                    <i class="fa-solid fa-weight-scale"></i>            
+                    </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-input">
+                    <input type="text" id="Keg2BeerName" 
+                           name="Keg2BeerName" placeholder="Type Beer Name here" 
+                           value="">
+                    <label for="Keg2BeerName">__.</label>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <button type="submit" class="btn-submit2" id="btnSubmit2"> Edit</button>
+                </td></tr>  
+              </table>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="card">
+          <p class="card-title">Keg #3</p>
+          <canvas id="gauge-keg3"></canvas>
+          <form action="" id="kegForm3">
+            <div>
+              <table class="mytable">
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg3Oz16" name="Keg3Oz16" value="40" disabled>
+                  <label for="Keg3Oz16">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-lg"></i>           
+                  </div>
+                 </td></tr>  
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg3Oz12" name="Keg3Oz12" value="40" disabled>
+                  <label for="Keg3Oz12">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-sm"></i>           
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-weightbox">
+                    <input type="text" id="Keg3Weight" name="Keg3Weight" value="22 lbs" disabled>
+                    <label for="Keg3Weight">__.</label>
+                    <i class="fa-solid fa-weight-scale"></i>            
+                    </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-input">
+                    <input type="text" id="Keg3BeerName" 
+                           name="Keg3BeerName" placeholder="Type Beer Name here" 
+                           value="">
+                    <label for="Keg3BeerName">__.</label>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <button type="submit" class="btn-submit3" id="btnSubmit3"> Edit</button>
+                </td></tr>  
+              </table>
+            </div>
+          </form>
+        </div>
+
+
+        <div class="card">
+          <p class="card-title">Keg #4</p>
+          <canvas id="gauge-keg4"></canvas>
+          <form action="" id="kegForm4">
+            <div>
+              <table class="mytable">
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg4Oz16" name="Keg4Oz16" value="40" disabled>
+                  <label for="Keg4Oz16">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-lg"></i>           
+                  </div>
+                 </td></tr>  
+                <tr><td>
+                  <div class="text-input50">
+                  <input type="text" id="Keg4Oz12" name="Keg4Oz12" value="40" disabled>
+                  <label for="Keg4Oz12">__.</label>
+                  <i class="fa-solid fa-beer-mug-empty fa-sm"></i>           
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-weightbox">
+                    <input type="text" id="Keg4Weight" name="Keg4Weight" value="22 lbs" disabled>
+                    <label for="Keg4Weight">__.</label>
+                    <i class="fa-solid fa-weight-scale"></i>            
+                    </div>
+                </td></tr>  
+                <tr><td>
+                  <div class="text-input">
+                    <input type="text" id="Keg4BeerName" 
+                           name="Keg4BeerName" placeholder="Type Beer Name here" 
+                           value="">
+                    <label for="Keg4BeerName">__.</label>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </div>
+                </td></tr>  
+                <tr><td>
+                  <button type="submit" class="btn-submit4" id="btnSubmit4"> Edit</button>
+                </td></tr>  
+              </table>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

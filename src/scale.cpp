@@ -68,7 +68,7 @@ uint8_t scalenum;
 
     }
 
-/*
+
   // Now check if cables are connected from ADC's to scales using the pullups connected to the IO expander
   for (int i = 0; i < 4; i++)
     {
@@ -84,7 +84,7 @@ uint8_t scalenum;
        NewScaleData[i].isPresent = false; // Cable is not connected to Scale, regardless of whether ADC is working
       }
     }
-*/
+
 
     MyKeezer.isScale1Installed = NewScaleData[0].isPresent;
     MyKeezer.isScale2Installed = NewScaleData[1].isPresent;
@@ -100,7 +100,8 @@ uint8_t scalenum;
       {
       Select_I2C_Mux_Port(ScaleData[scalenum].I2C_Mux_Port);
       //Select_I2C_Mux_Port(NewScaleData[scalenum].I2C_Mux_Port);
-	    myScales[scalenum].setGain(NAU7802_GAIN_16); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
+	    //myScales[scalenum].setGain(NAU7802_GAIN_16); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
+	    myScales[scalenum].setGain(NAU7802_GAIN_64); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
 	    myScales[scalenum].setLDO(NAU7802_LDO_3V0); //Set LDO (AVDD) voltage. 3.0V is the best choice for Qwiic
 	    myScales[scalenum].setSampleRate(NAU7802_SPS_320); //Increase to max sample rate
       }  

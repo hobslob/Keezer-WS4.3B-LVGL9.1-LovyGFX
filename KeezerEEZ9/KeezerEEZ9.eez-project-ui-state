@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[KeezerEEZ9.eez-project]:/userPages/2",
+    "selectedUserPageObject": "[KeezerEEZ9.eez-project]:/userPages/4",
     "selectedActionObject": "[KeezerEEZ9.eez-project]:/actions/1",
     "selectedStyleObject": "[KeezerEEZ9.eez-project]:/lvglStyles/styles/0",
     "selectedBitmapObject": "[KeezerEEZ9.eez-project]:/bitmaps/0",
@@ -60,6 +60,14 @@
                 "component": "lvgl-groups",
                 "enableClose": false,
                 "icon": "material:view_compact"
+              },
+              {
+                "type": "tab",
+                "id": "themes",
+                "name": "Themes",
+                "component": "themesSideView",
+                "enableClose": false,
+                "icon": "svg:palette"
               }
             ]
           },
@@ -183,38 +191,20 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 56.81362760547622,
+              "weight": 51.27254500880207,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#73fc6b2a-57e2-49be-9a9b-e00123dc27c8",
-                  "name": "scnKegData",
+                  "name": "scnWifi",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[KeezerEEZ9.eez-project]:/userPages/2",
+                    "objectPath": "[KeezerEEZ9.eez-project]:/userPages/4",
                     "permanent": false
                   },
-                  "icon": {
-                    "type": "svg",
-                    "key": null,
-                    "ref": null,
-                    "props": {
-                      "viewBox": "0 96 960 960",
-                      "fill": "currentColor",
-                      "children": {
-                        "type": "path",
-                        "key": null,
-                        "ref": null,
-                        "props": {
-                          "d": "M343 636h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42V236q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560V236H260v560ZM140 976q-24 0-42-18t-18-42V296h60v620h620v60H140Zm120-740v560-560Z"
-                        },
-                        "_owner": null
-                      }
-                    },
-                    "_owner": null
-                  }
+                  "icon": "svg:page"
                 },
                 {
                   "type": "tab",
@@ -233,7 +223,7 @@
             {
               "type": "row",
               "id": "#b3f5d30e-fec3-4a78-8f05-7ef4a037e32f",
-              "weight": 26.72344641023276,
+              "weight": 32.26452900690691,
               "children": [
                 {
                   "type": "tabset",
@@ -1061,6 +1051,9 @@
             "2": {},
             "3": {
               "0": {
+                "3": {
+                  "$selected": true
+                },
                 "10": {
                   "0": {}
                 }
@@ -1170,13 +1163,13 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "MAIN",
-  "lvglState": "DEFAULT",
+  "lvglPart": "SELECTED",
+  "lvglState": "CHECKED",
   "lvglExpandedPropertiesGroup": [
-    "TEXT",
-    "BACKGROUND"
+    "TEXT"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 0.75
+  "flowZoom": 0.75,
+  "implementationLanguage": "C"
 }
