@@ -91,6 +91,26 @@ uint8_t scalenum;
     MyKeezer.isScale3Installed = NewScaleData[2].isPresent;
     MyKeezer.isScale4Installed = NewScaleData[3].isPresent;
 
+  // Set opacity of Keg Panels on Main screen based on connectivity status
+  if (MyKeezer.isScale1Installed)
+      lv_obj_set_style_opa(objects.pnl_keg_container1, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+  else
+      lv_obj_set_style_opa(objects.pnl_keg_container1, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+  if (MyKeezer.isScale2Installed)
+      lv_obj_set_style_opa(objects.pnl_keg_container2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+  else
+      lv_obj_set_style_opa(objects.pnl_keg_container2, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+  if (MyKeezer.isScale3Installed)
+      lv_obj_set_style_opa(objects.pnl_keg_container3, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+  else
+      lv_obj_set_style_opa(objects.pnl_keg_container3, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+  if (MyKeezer.isScale4Installed)
+      lv_obj_set_style_opa(objects.pnl_keg_container4, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+  else
+      lv_obj_set_style_opa(objects.pnl_keg_container4, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
 
 
   // ADC Basic Initializations
@@ -100,8 +120,8 @@ uint8_t scalenum;
       {
       Select_I2C_Mux_Port(ScaleData[scalenum].I2C_Mux_Port);
       //Select_I2C_Mux_Port(NewScaleData[scalenum].I2C_Mux_Port);
-	    //myScales[scalenum].setGain(NAU7802_GAIN_16); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
-	    myScales[scalenum].setGain(NAU7802_GAIN_64); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
+	    myScales[scalenum].setGain(NAU7802_GAIN_16); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
+	    //myScales[scalenum].setGain(NAU7802_GAIN_32); //Gain can be set to 1, 2, 4, 8, 16, 32, 64, or 128.
 	    myScales[scalenum].setLDO(NAU7802_LDO_3V0); //Set LDO (AVDD) voltage. 3.0V is the best choice for Qwiic
 	    myScales[scalenum].setSampleRate(NAU7802_SPS_320); //Increase to max sample rate
       }  

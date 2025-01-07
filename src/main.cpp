@@ -426,7 +426,7 @@ void loop() {
         }
       }
 
-
+/*
     // test set the keg1 remaining bar
     lv_bar_set_value(objects.bar_keg_remain1, (int32_t)mytemp, LV_ANIM_OFF);
     //Serial.println(mytemp);
@@ -464,7 +464,7 @@ void loop() {
       if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
         lv_obj_set_style_border_color(objects.pnl_keg_container1, lv_color_hex(0x414141), LV_PART_MAIN);
       }
-
+*/
 
     if (++mytemp > 99)
         mytemp = 0;

@@ -523,51 +523,50 @@ void Update_MainScreen_Kegdata (uint8_t kegnum)
     case 0:
       //Serial.println("Scale1");
       // Update % Remaining Bar
-      //lv_bar_set_value(objects.bar_keg_remain1, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
+      lv_bar_set_value(objects.bar_keg_remain1, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
 
       // Update 16oz remaining data label
       lv_label_set_text_fmt(objects.lbl_keg16oz_remain1, "%.0f", KegData[kegnum].Remaining16oz);
-      //lv_label_set_text_fmt(objects.lbl_keg16oz_remain1, "%d", (uint32_t)KegData[kegnum].Remaining16oz);
 
       // Update 12oz remaining data label
       lv_label_set_text_fmt(objects.lbl_keg12oz_remain1, "%.0f", KegData[kegnum].Remaining12oz);
 
       // Update Color of % Remaining Bar and Keg Container
-      //border_color = lv_obj_get_style_border_color(objects.pnl_keg_container1,LV_PART_MAIN);
-      // if ( KegData[kegnum].PercentFull < 15)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain1, lv_color_hex(0xFF0000), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, lv_color_hex(0xFF0000), LV_PART_MAIN);
+      border_color = lv_obj_get_style_border_color(objects.pnl_keg_container1,LV_PART_MAIN);
+      if ( KegData[kegnum].PercentFull < 10)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain1, my_red, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, my_red, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container1, lv_color_hex(0xFF0000), LV_PART_MAIN);
-      //   }
-      // else if ( KegData[kegnum].PercentFull < 25)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain1, lv_color_hex(0xE0FF00), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, lv_color_hex(0xE0FF00), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container1, my_red, LV_PART_MAIN);
+        }
+      else if ( KegData[kegnum].PercentFull < 20)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain1, my_yellow, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, my_yellow, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container1, lv_color_hex(0xE0FF00), LV_PART_MAIN);
-      //   }
-      // else
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain1, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container1, my_yellow, LV_PART_MAIN);
+        }
+      else
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain1, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain1, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain1, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container1, lv_color_hex(0x414141), LV_PART_MAIN);
-      //   }
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container1, my_std_border, LV_PART_MAIN);
+        }
 
       break;
 
     case 1:
       //Serial.println("Scale2");
       // Update % Remaining Bar
-      //lv_bar_set_value(objects.bar_keg_remain2, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
+      lv_bar_set_value(objects.bar_keg_remain2, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
 
       // Update 16oz remaining data label
       lv_label_set_text_fmt(objects.lbl_keg16oz_remain2, "%.0f", KegData[kegnum].Remaining16oz);
@@ -576,41 +575,41 @@ void Update_MainScreen_Kegdata (uint8_t kegnum)
       lv_label_set_text_fmt(objects.lbl_keg12oz_remain2, "%.0f", KegData[kegnum].Remaining12oz);
 
       // Update Color of % Remaining Bar and Keg Container
-      //border_color = lv_obj_get_style_border_color(objects.pnl_keg_container2,LV_PART_MAIN);
-      // if ( KegData[kegnum].PercentFull < 15)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain2, lv_color_hex(0xFF0000), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, lv_color_hex(0xFF0000), LV_PART_MAIN);
+      border_color = lv_obj_get_style_border_color(objects.pnl_keg_container2,LV_PART_MAIN);
+      if ( KegData[kegnum].PercentFull < 10)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain2, my_red, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, my_red, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container2, lv_color_hex(0xFF0000), LV_PART_MAIN);
-      //   }
-      // else if ( KegData[kegnum].PercentFull < 25)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain2, lv_color_hex(0xE0FF00), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, lv_color_hex(0xE0FF00), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container2, my_red, LV_PART_MAIN);
+        }
+      else if ( KegData[kegnum].PercentFull < 20)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain2, my_yellow, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, my_yellow, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container2, lv_color_hex(0xE0FF00), LV_PART_MAIN);
-      //   }
-      // else
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain2, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container2, my_yellow, LV_PART_MAIN);
+        }
+      else
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain2, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain2, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain2, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container2, lv_color_hex(0x414141), LV_PART_MAIN);
-      //   }
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container2, my_std_border, LV_PART_MAIN);
+        }
 
       break;
 
     case 2:
       //Serial.println("Scale3");
       // Update % Remaining Bar
-      //lv_bar_set_value(objects.bar_keg_remain3, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
+      lv_bar_set_value(objects.bar_keg_remain3, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
 
       // Update 16oz remaining data label
       lv_label_set_text_fmt(objects.lbl_keg16oz_remain3, "%.0f", KegData[kegnum].Remaining16oz);
@@ -619,41 +618,41 @@ void Update_MainScreen_Kegdata (uint8_t kegnum)
       lv_label_set_text_fmt(objects.lbl_keg12oz_remain3, "%.0f", KegData[kegnum].Remaining12oz);
 
       // Update Color of % Remaining Bar and Keg Container
-      //border_color = lv_obj_get_style_border_color(objects.pnl_keg_container3,LV_PART_MAIN);
-      // if ( KegData[kegnum].PercentFull < 15)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain3, lv_color_hex(0xFF0000), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, lv_color_hex(0xFF0000), LV_PART_MAIN);
+      border_color = lv_obj_get_style_border_color(objects.pnl_keg_container3,LV_PART_MAIN);
+      if ( KegData[kegnum].PercentFull < 10)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain3, my_red, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, my_red, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container3, lv_color_hex(0xFF0000), LV_PART_MAIN);
-      //   }
-      // else if ( KegData[kegnum].PercentFull < 25)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain3, lv_color_hex(0xE0FF00), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, lv_color_hex(0xE0FF00), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container3, my_red, LV_PART_MAIN);
+        }
+      else if ( KegData[kegnum].PercentFull < 20)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain3, my_yellow, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, my_yellow, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container3, lv_color_hex(0xE0FF00), LV_PART_MAIN);
-      //   }
-      // else
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain3, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container3, my_yellow, LV_PART_MAIN);
+        }
+      else
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain3, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain3, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain3, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container3, lv_color_hex(0x414141), LV_PART_MAIN);
-      //   }
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container3, my_std_border, LV_PART_MAIN);
+        }
 
       break;
 
     case 3:
       //Serial.println("Scale4");
       // Update % Remaining Bar
-      //lv_bar_set_value(objects.bar_keg_remain4, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
+      lv_bar_set_value(objects.bar_keg_remain4, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
 
       // Update 16oz remaining data label
       lv_label_set_text_fmt(objects.lbl_keg16oz_remain4, "%.0f", KegData[kegnum].Remaining16oz);
@@ -662,34 +661,34 @@ void Update_MainScreen_Kegdata (uint8_t kegnum)
       lv_label_set_text_fmt(objects.lbl_keg12oz_remain4, "%.0f", KegData[kegnum].Remaining12oz);
 
       // Update Color of % Remaining Bar and Keg Container
-      //border_color = lv_obj_get_style_border_color(objects.pnl_keg_container4,LV_PART_MAIN);
-      // if ( KegData[kegnum].PercentFull < 15)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain4, lv_color_hex(0xFF0000), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, lv_color_hex(0xFF0000), LV_PART_MAIN);
+      border_color = lv_obj_get_style_border_color(objects.pnl_keg_container4,LV_PART_MAIN);
+      if ( KegData[kegnum].PercentFull < 10)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain4, my_red, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, my_red, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container4, lv_color_hex(0xFF0000), LV_PART_MAIN);
-      //   }
-      // else if ( KegData[kegnum].PercentFull < 25)
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain4, lv_color_hex(0xE0FF00), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, lv_color_hex(0xE0FF00), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_red) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container4, my_red, LV_PART_MAIN);
+        }
+      else if ( KegData[kegnum].PercentFull < 20)
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain4, my_yellow, LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, my_yellow, LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container4, lv_color_hex(0xE0FF00), LV_PART_MAIN);
-      //   }
-      // else
-      //   {
-      //   lv_obj_set_style_bg_color(objects.bar_keg_remain4, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
-      //   lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
-      //   lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_yellow) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container4, my_yellow, LV_PART_MAIN);
+        }
+      else
+        {
+        lv_obj_set_style_bg_color(objects.bar_keg_remain4, lv_color_hex(0x2095f6), LV_PART_INDICATOR);
+        lv_obj_set_style_bg_opa(objects.bar_keg_remain4, 255, LV_PART_INDICATOR);
+        lv_obj_set_style_text_color(objects.lbl_keg_pct_remain4, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
 
-      //   if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
-      //     lv_obj_set_style_border_color(objects.pnl_keg_container4, lv_color_hex(0x414141), LV_PART_MAIN);
-      //   }
+        if ( lv_color_to_u16(border_color) != lv_color_to_u16(my_std_border) )
+          lv_obj_set_style_border_color(objects.pnl_keg_container4, my_std_border, LV_PART_MAIN);
+        }
 
       break;
 

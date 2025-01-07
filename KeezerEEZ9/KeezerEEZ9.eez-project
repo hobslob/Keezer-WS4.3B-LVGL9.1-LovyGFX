@@ -1065,7 +1065,7 @@
                       "min": 0,
                       "max": 100,
                       "mode": "NORMAL",
-                      "value": 25,
+                      "value": 0,
                       "valueType": "literal",
                       "valueStart": 0,
                       "valueStartType": "literal",
@@ -1598,7 +1598,7 @@
                       "min": 0,
                       "max": 100,
                       "mode": "NORMAL",
-                      "value": 25,
+                      "value": 0,
                       "valueType": "literal",
                       "valueStart": 0,
                       "valueStartType": "literal",
@@ -2131,7 +2131,7 @@
                       "min": 0,
                       "max": 100,
                       "mode": "NORMAL",
-                      "value": 25,
+                      "value": 0,
                       "valueType": "literal",
                       "valueStart": 0,
                       "valueStartType": "literal",
@@ -2522,6 +2522,7 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "pnlKegContainer4",
@@ -2545,6 +2546,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "pnlKegGraph4",
@@ -2568,6 +2570,7 @@
                         "conditionalStyles": [],
                         "childStyles": []
                       },
+                      "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [
                         {
@@ -2630,6 +2633,7 @@
                         "conditionalStyles": [],
                         "childStyles": []
                       },
+                      "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
                       "identifier": "barKegRemain4",
@@ -2664,7 +2668,7 @@
                       "min": 0,
                       "max": 100,
                       "mode": "NORMAL",
-                      "value": 25,
+                      "value": 0,
                       "valueType": "literal",
                       "valueStart": 0,
                       "valueStartType": "literal",
@@ -2685,6 +2689,7 @@
                         "conditionalStyles": [],
                         "childStyles": []
                       },
+                      "hiddenInEditor": false,
                       "timeline": [],
                       "eventHandlers": [],
                       "identifier": "lblKegPctRemain4",
@@ -2767,6 +2772,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "lblKegName4",
@@ -2819,6 +2825,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "lbl16oz4",
@@ -2870,6 +2877,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "lbl12oz4",
@@ -2921,6 +2929,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "lblKeg16ozRemain4",
@@ -2973,6 +2982,7 @@
                     "conditionalStyles": [],
                     "childStyles": []
                   },
+                  "hiddenInEditor": false,
                   "timeline": [],
                   "eventHandlers": [],
                   "identifier": "lblKeg12ozRemain4",
@@ -3032,7 +3042,8 @@
                       "pad_top": 10,
                       "pad_bottom": 0,
                       "pad_left": 0,
-                      "pad_right": 0
+                      "pad_right": 0,
+                      "opa": 75
                     }
                   }
                 }
@@ -4082,7 +4093,7 @@
                   "type": "LVGLLabelWidget",
                   "left": 0,
                   "top": -2,
-                  "width": 252,
+                  "width": 206,
                   "height": 16,
                   "customInputs": [],
                   "customOutputs": [],
@@ -4123,7 +4134,7 @@
                   },
                   "group": "",
                   "groupIndex": 0,
-                  "text": "Scale: Connected-No Keg On Scale",
+                  "text": "Scale Status: Not Connected",
                   "textType": "literal",
                   "longMode": "WRAP",
                   "recolor": false
@@ -5803,7 +5814,7 @@
                       "type": "LVGLLabelWidget",
                       "left": 270,
                       "top": -60,
-                      "width": 62,
+                      "width": 52,
                       "height": 18,
                       "customInputs": [],
                       "customOutputs": [],
@@ -5843,7 +5854,7 @@
                       },
                       "group": "",
                       "groupIndex": 0,
-                      "text": "60.0 lbs",
+                      "text": "0.0 lbs",
                       "textType": "literal",
                       "longMode": "WRAP",
                       "recolor": false

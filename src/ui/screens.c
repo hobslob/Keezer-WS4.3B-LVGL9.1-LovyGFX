@@ -168,7 +168,6 @@ void create_screen_scn_home() {
                             objects.bar_keg_remain1 = obj;
                             lv_obj_set_pos(obj, -12, -35);
                             lv_obj_set_size(obj, 10, 140);
-                            lv_bar_set_value(obj, 25, LV_ANIM_OFF);
                             lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                         {
@@ -284,7 +283,6 @@ void create_screen_scn_home() {
                             objects.bar_keg_remain2 = obj;
                             lv_obj_set_pos(obj, -12, -35);
                             lv_obj_set_size(obj, 10, 140);
-                            lv_bar_set_value(obj, 25, LV_ANIM_OFF);
                             lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                         {
@@ -400,7 +398,6 @@ void create_screen_scn_home() {
                             objects.bar_keg_remain3 = obj;
                             lv_obj_set_pos(obj, -12, -35);
                             lv_obj_set_size(obj, 10, 140);
-                            lv_bar_set_value(obj, 25, LV_ANIM_OFF);
                             lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                         {
@@ -482,6 +479,7 @@ void create_screen_scn_home() {
             lv_obj_set_style_pad_bottom(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_opa(obj, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
             {
                 lv_obj_t *parent_obj = obj;
                 {
@@ -516,7 +514,6 @@ void create_screen_scn_home() {
                             objects.bar_keg_remain4 = obj;
                             lv_obj_set_pos(obj, -12, -35);
                             lv_obj_set_size(obj, 10, 140);
-                            lv_bar_set_value(obj, 25, LV_ANIM_OFF);
                             lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                         {
@@ -806,7 +803,7 @@ void create_screen_scn_keg_data() {
                     objects.lbl_keg_status = obj;
                     lv_obj_set_pos(obj, 0, -2);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                    lv_label_set_text(obj, "Scale: Connected-No Keg On Scale");
+                    lv_label_set_text(obj, "Scale Status: Not Connected");
                     lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_text_font(obj, &lv_font_montserrat_14, LV_PART_MAIN | LV_STATE_DEFAULT);
                 }
@@ -1188,7 +1185,7 @@ void create_screen_scn_calibrate() {
                             objects.lbl_cal_curr_weight = obj;
                             lv_obj_set_pos(obj, 270, -60);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-                            lv_label_set_text(obj, "60.0 lbs");
+                            lv_label_set_text(obj, "0.0 lbs");
                             lv_obj_set_style_align(obj, LV_ALIGN_BOTTOM_LEFT, LV_PART_MAIN | LV_STATE_DEFAULT);
                         }
                         {

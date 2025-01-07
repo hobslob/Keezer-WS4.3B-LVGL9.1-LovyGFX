@@ -70,11 +70,14 @@ void action_keg1_home_click_cb(lv_event_t * e)
     if(MyKeezer.isScale1Installed)
         {
         // if weight > 2 lbs
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+        if ( KegData[0].CurrentWeight > 2)
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
+        else
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
         }
     else
         {
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+        lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
         }
 
     // Make sure Keg Modify checkbox is unchecked to start
@@ -107,14 +110,17 @@ void action_keg2_home_click_cb(lv_event_t * e)
     lv_textarea_set_text(objects.txt_weight_full, str );
 
     // Update Scale Connectivitiy Status		
-    if(MyKeezer.isScale1Installed)
+    if(MyKeezer.isScale2Installed)
         {
         // if weight > 2 lbs
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+        if ( KegData[1].CurrentWeight > 2)
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
+        else
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
         }
     else
         {
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+        lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
         }
 
     // Make sure Keg Modify checkbox is unchecked to start
@@ -144,14 +150,17 @@ void action_keg3_home_click_cb(lv_event_t * e)
     lv_textarea_set_text(objects.txt_weight_full, str );
 
     // Update Scale Connectivitiy Status		
-    if(MyKeezer.isScale1Installed)
+    if(MyKeezer.isScale3Installed)
         {
         // if weight > 2 lbs
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+        if ( KegData[2].CurrentWeight > 2)
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
+        else
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
         }
     else
         {
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+        lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
         }
 
     // Make sure Keg Modify checkbox is unchecked to start
@@ -181,14 +190,17 @@ void action_keg4_home_click_cb(lv_event_t * e)
     lv_textarea_set_text(objects.txt_weight_full, str );
 
     // Update Scale Connectivitiy Status		
-    if(MyKeezer.isScale1Installed)
+    if(MyKeezer.isScale4Installed)
         {
         // if weight > 2 lbs
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+        if ( KegData[3].CurrentWeight > 2)
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
+        else
+            lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
         }
     else
         {
-        lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+        lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
         }
 
     // Make sure Keg Modify checkbox is unchecked to start
@@ -292,13 +304,13 @@ char str[8];
             if(MyKeezer.isScale1Installed)
                 {
                 if ( KegData[kegpage].CurrentWeight > 2 )
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
                 else
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
                 }
             else
                 {
-                lv_label_set_text(objects.lbl_keg_status, "Scale: Not Connected");                
+                lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
                 }
 
             // Update Kegtype Dropdown
@@ -323,13 +335,13 @@ char str[8];
             if(MyKeezer.isScale2Installed)
                 {
                 if ( KegData[kegpage].CurrentWeight > 2 )
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
                 else
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
                 }
             else
                 {
-                lv_label_set_text(objects.lbl_keg_status, "Scale: Not Connected");                
+                lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
                 }
 
             // Update Kegtype Dropdown
@@ -354,13 +366,13 @@ char str[8];
             if(MyKeezer.isScale3Installed)
                 {
                 if ( KegData[kegpage].CurrentWeight > 2 )
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
                 else
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
                 }
             else
                 {
-                lv_label_set_text(objects.lbl_keg_status, "Scale: Not Connected");                
+                lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
                 }
 
             // Update Kegtype Dropdown
@@ -385,13 +397,13 @@ char str[8];
             if(MyKeezer.isScale4Installed)
                 {
                 if ( KegData[kegpage].CurrentWeight > 2 )
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected");
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected");
                 else
-                    lv_label_set_text(objects.lbl_keg_status, "Scale: Connected-No Keg On Scale");                
+                    lv_label_set_text(objects.lbl_keg_status, "Scale Status: Connected-No Keg On Scale");                
                 }
             else
                 {
-                lv_label_set_text(objects.lbl_keg_status, "Scale: Not Connected");                
+                lv_label_set_text(objects.lbl_keg_status, "Scale Status: Not Connected");                
                 }
 
             // Update Kegtype Dropdown
