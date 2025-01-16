@@ -138,6 +138,10 @@ uint8_t scalenum;
       }  
     }
 
+  // Initialize Keg Capacities used for calculations
+  for (int i = 0; i < 4; i++)
+    initialize_keg_capacity ( i );
+
 	
 }
 

@@ -68,7 +68,7 @@
 #define BEER_OZ_PER_LB      15.384f
 
 
-#define NUM_WEIGHT_SAMPLES 8
+#define NUM_WEIGHT_SAMPLES 10
 
 #define TEMPERATURE_UNITS_C  0
 #define TEMPERATURE_UNITS_F   1
@@ -140,6 +140,7 @@ typedef struct
     uint8_t       KegType;              // Type of Keg: Sixtel or Nitro
     float         EmptyWeight;          // Weight Value of Keg when Empty
     float         FullWeight;           // Weight Value of Keg when Full
+    float         Capacity;             // Capacity of Keg when Full
     float         CurrentWeight;        // Current Weight of Keg
     float         PercentFull;          // Percentage left in Keg
     float         remainingTotalOz;     // Number of 16 ounce "Pints" left in Keg

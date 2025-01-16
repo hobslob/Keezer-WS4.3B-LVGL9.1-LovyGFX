@@ -134,7 +134,8 @@ void Calculate_Remainig_Content (KegInfo *keg)
 
   keg->Remaining16oz = keg->remainingTotalOz / 16;
   keg->Remaining12oz = keg->remainingTotalOz / 12;
-  keg->PercentFull = (keg->CurrentWeight/keg->FullWeight)*100;
+  //keg->PercentFull = (keg->CurrentWeight/keg->FullWeight)*100;
+  keg->PercentFull = (keg->remainingTotalOz/keg->Capacity)*100;
 
   // check for negative content
   if ( keg->PercentFull < 0)
@@ -521,7 +522,8 @@ void Update_MainScreen_Kegdata (uint8_t kegnum)
   switch (kegnum)
     {
     case 0:
-      //Serial.println("Scale1");
+      Serial.print("Scale1 Remaining ");
+      Serial.println(KegData[kegnum].PercentFull);
       // Update % Remaining Bar
       lv_bar_set_value(objects.bar_keg_remain1, (int32_t)KegData[kegnum].PercentFull, LV_ANIM_OFF);
 
@@ -716,4 +718,10 @@ void Update_pnl_keg_capacity ( uint8_t kegnum )
 {
   uint8_t kegtype = KegData[kegnum].KegType;
   lv_label_set_text_fmt(objects.lbl_keg_capacity_data, "%.0f fl oz", keg_capacities[kegtype]);
+}
+
+void initialize_keg_capacity ( uint8_t kegnum )
+{
+  uint8_t kegtype = KegData[kegnum].KegType;
+  KegData[kegnum].Capacity = keg_capacities[kegtype];
 }

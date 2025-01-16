@@ -20,6 +20,7 @@ void update_all_kegnames ( void );
 void Update_MainScreen_Kegdata (uint8_t kegnum);
 void Update_pnl_keg_Info ( void );
 void Update_pnl_keg_capacity ( uint8_t kegnum );
+void initialize_keg_capacity ( uint8_t kegnum );
 
 
 // void kegdata_canvas_init ( void );
